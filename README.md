@@ -1,10 +1,10 @@
 # BipedalWalking_Simulink_ModelnData
 
-### Contains a model of bipedal walking on Treadmill in Sagittal plane and a script used to generate the data needed to actuate the model
+#### Contains a model of bipedal walking on Treadmill in Sagittal plane and a script used to generate the data needed to actuate the model
 
 Run '**Script_Data.m**' to generate the joint angle trajectories and other kinematic or temporal variables and parameters into the workspace
 
-*Note*: Read the description in '**Script_Data.m**' for importing and using your time and joint angle trajectories data in an appropriate format
+*Note*: Read the description in '**Script_Data.m**' for importing and using your time (`Time`) and joint angle trajectories (`Traj`) data in an appropriate format.
 
 
 Then open and run '**Biped_Model.slx**' for both seeing the resulting animation of simulation and obtaining the outputs.
