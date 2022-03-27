@@ -1,15 +1,20 @@
 # BipedalWalking_Simulink_ModelnData
+This repository contains: 
+- a model of bipedal walking on a Treadmill, the belts of which could be set to roll at different speeds ('**Biped_Model.slx**')
+- a script used to generate the data needed to actuate the model ('**Script_Data.m**')
 
-#### Contains a model of bipedal walking on Treadmill in Sagittal plane and a script used to generate the data needed to actuate the model
+## Instructions to implement a simulation using motion data as input
+
+Follow these steps to be able to run a simulation for any arbitrary joint angle data.
 
 1. Run '**Script_Data.m**' to generate the joint angle trajectories and other kinematic or temporal variables and parameters into the workspace
 
-*Note*: Read the description in '**Script_Data.m**' for importing and using your time (`Time`) and joint angle trajectories (`Traj`) data in an appropriate format.
+*Note*: Read the description in '**Script_Data.m**' for importing and using your time (`Time`) and joint angle trajectories (`Traj`) data in a proper format. You may need to follow the angle conventions noted in the script.
 
 
-2. Then open and run '**Biped_Model.slx**' for both seeing the resulting animation of simulation and obtaining the outputs.
+2. Then open and run '**Biped_Model.slx**' for both seeing the resulting animation of simulation and obtaining the outputs, which will be accessible through Matlab workspace once the simulation is complete.
 
-*Note*: Running the simulation directly would generate the simulation output into the workspace. Alternatively, you can look into '**Script_Data.m**' and uncomment the code chunk where you can use `sim('Biped_Model.slx')` to save the simulation output into a single structure.
+*Note*: Running the simulation directly would generate the simulation output into the workspace. Alternatively, you can look into '**Script_Data.m**' and uncomment the relevant line of code where you may use `sim('Biped_Model.slx')` to save the simulation output into a single structure and have access to the outputs in the script for potential visualization purposes.
 
 
 
