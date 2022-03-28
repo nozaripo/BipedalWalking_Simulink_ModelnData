@@ -38,7 +38,7 @@ The brownish area, also shown below, represents the unactuated degrees of freedo
 
 ![image](https://user-images.githubusercontent.com/40179311/160374018-2c138ef9-213b-4283-9eb7-c1d0929282a5.png)
 
-Below is shown the main block of the model, within which all the robot segments and joints plus their actuators as well as all the blocks relevant to contact between the model's feet and the treadmill are defined. This will be reviewed in depth in Section [Robot Block](#-robot-block)
+Below is shown the main block of the model, within which all the robot segments and joints plus their actuators as well as all the blocks relevant to contact between the model's feet and the treadmill are defined. This will be reviewed in depth in Section [Robot Block](#Robot-Block).
 
 ![image](https://user-images.githubusercontent.com/40179311/160374602-9704a87d-e228-493a-aeb4-300dd6702423.png)
 
