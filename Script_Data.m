@@ -27,6 +27,7 @@
 
 % Here I use my exemplary data;
 [Time, Traj] = Example_Trajectories;
+% [Time, Traj] = Example_Trajectories1;
 
 
 
@@ -43,8 +44,8 @@ split_belt = 0;             % belt speed difference
 
 
 %% Actuator type; 
-% Control_Method = 'Perfect_Position';    % Perfect Position Control
-Control_Method = 'Motor_Torque';      % PID-tracking Motor Control
+Control_Method = 'Perfect_Position';    % Perfect Position Control
+% Control_Method = 'Motor_Torque';      % PID-tracking Motor Control
 
 switch Control_Method
     case 'Perfect_Position'
@@ -88,7 +89,9 @@ joint_angles = joint_angles(:,end:-1:1);
 
 % initial torso pitch and COM height
 theta0 = (init(1)+init(3)); % Torso's initial pitch; set to straight up for now;
+% theta0 = 0;
 init_height = 38*2*cos(init(3))+3.0; % initial CoM height; set for the foot to be touching the walkway
+% init_height = 38*(cos(init(1)) + cos(init(1)-init(2))) + 3.0; % initial CoM height; set for the foot to be touching the walkway
 
 % initial translational velocities of the torso CoM
 Vx_init = 0;
@@ -109,6 +112,29 @@ St = load('Exemplary_Data.mat');
 freq = 1;
 L_Hip_Angle = lowpass(St.Baseline.L_Hip_Angle(tt1:tt2,1),freq,100);
 L_Hip_Angle = L_Hip_Angle - L_Hip_Angle(1,1);
+L_Knee_Angle = lowpass(St.Baseline.L_Knee_Angle(tt1:tt2,1),freq,100);
+L_Ankle_Angle = lowpass(St.Baseline.L_Ankle_Angle(tt1:tt2,1),freq,100);
+R_Hip_Angle = circshift(L_Hip_Angle, shift0);
+R_Knee_Angle = circshift(L_Knee_Angle, shift0);
+R_Ankle_Angle = circshift(L_Ankle_Angle, shift0);
+
+Traj = [L_Hip_Angle L_Knee_Angle L_Ankle_Angle R_Hip_Angle R_Knee_Angle R_Ankle_Angle];
+
+Time = (0:.01:.01*209)';
+
+end
+
+function [Time, Traj] = Example_Trajectories1
+
+tt1 = 16700;
+di = 209;
+tt2 = tt1 + di;
+shift0 = ceil(di/4);
+
+St = load('Exemplary_Data.mat');
+freq = 1;
+L_Hip_Angle = lowpass(St.Baseline.L_Hip_Angle(tt1:tt2,1),freq,100);
+L_Hip_Angle = L_Hip_Angle;
 L_Knee_Angle = lowpass(St.Baseline.L_Knee_Angle(tt1:tt2,1),freq,100);
 L_Ankle_Angle = lowpass(St.Baseline.L_Ankle_Angle(tt1:tt2,1),freq,100);
 R_Hip_Angle = circshift(L_Hip_Angle, shift0);
